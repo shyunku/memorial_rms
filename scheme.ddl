@@ -7,6 +7,7 @@ create table version_master
 	verified tinyint(1) default 0 not null,
 	alerted tinyint(1) default 0 null,
 	mac tinyint(1) default 0 null,
-	win tinyint(1) default 0 null
+	win tinyint(1) default 0 null,
+	download_count bigint default 0 null
 );
 
