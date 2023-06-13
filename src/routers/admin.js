@@ -105,7 +105,7 @@ router.post("/alert-new-version", async (req, res) => {
 
   try {
     const { APP_SERVER_ENTRY } = process.env;
-    const url = `${APP_SERVER_ENTRY}/admin/alert-new-version`;
+    const url = `${APP_SERVER_ENTRY}/v1/admin/alert-new-version`;
     let result = await axios.post(url, { version });
     await db.query(`UPDATE version_master SET alerted=true WHERE version=?`, [version]);
     resolver.ok(res, result.data);
