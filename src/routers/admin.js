@@ -10,6 +10,8 @@ const db = require("../modules/mysql");
 const axios = require("axios");
 const DiskUsage = require("diskusage");
 
+const serverPort = process.env.SERVER_PORT;
+
 router.get("/disk-status", async (req, res) => {
   DiskUsage.check("/", (err, info) => {
     if (err) {
@@ -58,7 +60,7 @@ router.get("/versions", async (req, res) => {
               versionInfo.releases.push({
                 category,
                 filename: file,
-                link: `http://${ipv4}:9973/default/release?version=${version}&category=${category}`,
+                link: `http://${ipv4}:${serverPort}/default/release?version=${version}&category=${category}`,
               });
             }
           }

@@ -1,9 +1,12 @@
-create table `memorial-rms`.version_master
+create table version_master
 (
 	version varchar(255) not null,
-	updated_timestamp int null,
-	final_edit_timestamp int null,
+	updated_timestamp bigint null,
+	final_edit_timestamp bigint null,
 	beta tinyint(1) default 1 not null,
-	verified tinyint(1) default 0 not null
+	verified tinyint(1) default 0 not null,
+	alerted tinyint(1) default 0 null,
+	mac tinyint(1) default 0 null,
+	win tinyint(1) default 0 null
 );
 
